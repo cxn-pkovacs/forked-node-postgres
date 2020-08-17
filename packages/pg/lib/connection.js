@@ -123,6 +123,7 @@ Connection.prototype.connect = function (port, host) {
 Connection.prototype.attachListeners = function (stream) {
   var self = this
   stream.on('data', function (buff) {
+    console.log("Connection.prototype.attachListeners: stream.on('data'): buffer.length", buff.length);
     self._reader.addChunk(buff)
     var packet = self._reader.read()
     while (packet) {
@@ -230,6 +231,7 @@ Connection.prototype._send = function (code, more) {
 }
 
 Connection.prototype.query = function (text) {
+  console.log("Connection.prototype.query: text: ", text);
   // 0x51 = Q
   this.stream.write(this.writer.addCString(text).flush(0x51))
 }

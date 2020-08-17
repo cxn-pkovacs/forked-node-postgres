@@ -3,7 +3,7 @@
   "description": "node postgres monorepo",
   "main": "index.js",
   "private": true,
-  "repository": "git@github.com:brianc/node-postgres.git",
+  "repository": "git@github.com:cxn-pkovacs/forked-node-postgres.git",
   "author": "Brian M. Carlson <brian.m.carlson@gmail.com>",
   "license": "MIT",
   "workspaces": [
@@ -11,7 +11,8 @@
   ],
   "scripts": {
     "test": "yarn lerna exec yarn test",
-    "lint": "yarn lerna exec --parallel yarn lint"
+    "lint": "yarn lerna exec --parallel yarn lint",
+    "postinstall": "./postinstall.js"
   },
   "devDependencies": {
     "lerna": "^3.19.0"
